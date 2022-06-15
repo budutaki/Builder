@@ -20,26 +20,23 @@ public class Main {
                 .build();
         System.out.println("У " + mom + ", и " + dad + ", есть сын -  " + son);
 
-        son.happyBirthday();
-        System.out.println(son.getAge());
+        try {
+            new PersonBuilder().build();
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
+        }
 
-//        try {
-//            new PersonBuilder().build();
-//        } catch (IllegalStateException e) {
-//            e.printStackTrace();
-//        }
-//
-//        try {
-//            new PersonBuilder().setAge(-100).build();
-//        } catch (IllegalArgumentException e) {
-//            e.printStackTrace();
-//        }
-//
-//        try {
-//            mom.setAge(78);
-//        } catch (RuntimeException e) {
-//            e.printStackTrace();
-//
-//        }
+        try {
+            new PersonBuilder().setAge(-100).build();
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            mom.setAge(78);
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+
+        }
     }
 }
